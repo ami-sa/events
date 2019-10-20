@@ -1,2 +1,2 @@
-# events
-Main Events homepage
+# ami.github.io
+ Official AMI church website
