@@ -75,11 +75,11 @@
   ============================-->
   <section id="intro">
     <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">The International<br><span>Visitors</span> Program</h1>
-      <p class="mb-4 pb-0">10-12 December, 8 Charles Crescent Kramerville, Sandton, South Africa</p>
+      <h1 class="mb-4 pb-0" id="event_title">The International<br><span>Visitors</span> Program</h1>
+      <p class="mb-4 pb-0" id="event_sub_detail">10-12 December, 8 Charles Crescent Kramerville, Sandton, South Africa</p>
       <a href="https://www.youtube.com/watch?v=lw9CcLGjouM" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About The Event</a>
+      <a href="#about" class="about-btn scrollto">About This IVP</a>
     </div>
   </section>
 
@@ -92,18 +92,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2>About The Event</h2>
-            <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
+            <h2>About</h2>
+            <p id="about_event">Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
               accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
               est ut optio sequi unde.</p>
           </div>
           <div class="col-lg-3">
             <h3>Where</h3>
-            <p>Downtown Conference Center, Johannesburg, Sandton, South Africa</p>
+            <p id="event_location">Downtown Conference Center, Johannesburg, Sandton, South Africa</p>
           </div>
           <div class="col-lg-3">
             <h3>When</h3>
-            <p>Monday to Wednesday<br>10-12 December</p>
+            <p id="event_date">Monday to Wednesday<br>10-12 December</p>
           </div>
         </div>
       </div>
@@ -129,8 +129,8 @@
           <div class="col-lg-6 venue-info">
             <div class="row justify-content-center">
               <div class="col-11 col-lg-8">
-                <h3>Alleluia Ministries, Kramerville, Sandton</h3>
-                <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
+                <h3>Alleluia Ministries International Presents...</h3>
+                <p>The International Visitors' Program</p>
               </div>
             </div>
           </div>
@@ -262,19 +262,22 @@
       Buy Ticket Section
     ============================-->
     <section id="buy-tickets" class="section-with-bg wow fadeInUp">
-		<div class="container">
+		<div onload="" class="container" >
 
 			<div class="section-header">
 			  <h2>Buy Tickets</h2>
-			  <p>Velit consequatur consequatur inventore iste fugit unde omnis eum aut.</p>
+			  <p>Hurry! Spaces are limited!</p>
 			</div>
 
 			<div class="row">
 				<div class="col-lg-4">
 				<div class="card mb-5 mb-lg-0">
 				  <div class="card-body">
-					<h5 class="card-title text-muted text-uppercase text-center">Standard Ticket</h5>
-					<h6 class="card-price text-center">$550</h6>
+					<h5 class="card-title text-muted text-uppercase text-center" id="ticket_standard_title">Standard Ticket</h5>
+					<h6 class="card-price text-center">$<span id="ticket_cost_standard">350</span></h6>
+					<hr>
+					<p id="standard_spaces_left"></p>
+					<p id="standard_desc"></p>
 					<hr>
 					<ul class="fa-ul">
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Complete Event Access</li>
@@ -282,7 +285,6 @@
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Lunch Break</li>
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Mass Prayer</li>
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Bus Shuttle</li>
-					  
 						<li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Reserved seating</li>
 						<li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>VIP Coffee Break</li>
 					</ul>
@@ -292,8 +294,11 @@
 				<div class="col-lg-4">
 				<div class="card mb-5 mb-lg-0">
 				  <div class="card-body">
-					<h5 class="card-title text-muted text-uppercase text-center">VIP Ticket</h5>
-					<h6 class="card-price text-center">$750</h6>
+					<h5 class="card-title text-muted text-uppercase text-center" id="ticket_vip_title">VIP Ticket</h5>
+					<h6 class="card-price text-center">$<span id="ticket_cost_vip">750</span></h6>
+					<hr>
+					<p id="vip_spaces_left"></p>
+					<p id="vip_desc"></p>
 					<hr>
 					<ul class="fa-ul">
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Complete Event Access</li>
@@ -303,7 +308,6 @@
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>VIP Lunch Break</li>
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Shared Private Car Shuttle</li>
 						<li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>VIP Coffee Break</li>
-					  
 					</ul>
 				  </div>
 				</div>
@@ -312,8 +316,11 @@
 				<div class="col-lg-4">
 				<div class="card">
 				  <div class="card-body">
-					<h5 class="card-title text-muted text-uppercase text-center">VVIP Ticket</h5>
-					<h6 class="card-price text-center">$1050</h6>
+					<h5 class="card-title text-muted text-uppercase text-center" id="ticket_vvip_title">VVIP Ticket</h5>
+					<h6 class="card-price text-center">$<span id="ticket_cost_vvip">1050</span></h6>
+					<hr>
+					<p id="vvip_spaces_left"></p>
+					<p id="vvip_desc"></p>
 					<hr>
 					<ul class="fa-ul">
 						<li><span class="fa-li"><i class="fa fa-check"></i></span>Complete Event Access</li>
@@ -328,7 +335,6 @@
 				</div>
 				</div>
 			</div>
-			
 		</div>
 		<br>
 		<div class="container">
@@ -337,7 +343,7 @@
 					<div class="card mb-5 mb-lg-0">
 						<div class="card-body">
 							<div class="text-center">
-								<button type="button" class="btn">Buy Now</button>
+								<a href="#" target="_blank" id="buy_now"> <button type="button" class="btn">Buy Now</button></a>
 							</div>
 						</div>
 					</div>
@@ -504,6 +510,9 @@ We commit to the act of submitting to the will of God. This means serving under 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
 
+	<!-- Event details Javascript File -->
+  <script src="js/user.js"></script>
+  
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script src="js/countdowntime.js"></script>
