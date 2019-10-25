@@ -95,6 +95,8 @@ jQuery(function(){
 		
 	}
 	
+	
+
 	// Get event details
 	$.ajax({
 		url: url_event_domain + 'others/learning/test_api/api/get/get_attendize_ivp_event.php?oid='+event_organiser_id,	// oid==>organiser id
@@ -124,13 +126,7 @@ jQuery(function(){
 
 			}
 		}
-	});
-	
-	
-	
-	
-	
-						
+	});				
 	
 
 })
