@@ -5,9 +5,24 @@ jQuery(function(){
 
 	var event_id = 1;		// default = 1
 	
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = window.location.search.substring(1),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+			}
+		}
+	};
+
 	function getIvpEventTicketDetail(mainUrl, eventId)
 	{
-		//eventId=1;
+		
 		$.ajax({
 			url: mainUrl + 'others/learning/test_api/api/get/get_attendize_ivp_ticket.php?eid='+eventId,	// eid==>event_id
 			type: 'get',
@@ -69,7 +84,6 @@ jQuery(function(){
 						$('#ticket_cost_vvip').html('0.00');
 					}	
 				}
-				
 						
 			},
 			
@@ -92,43 +106,74 @@ jQuery(function(){
 				$('#ticket_cost_standard').html('0.00');
 			}
 		});
-		
 	}
 	
-	
 
-	// Get event details
-	$.ajax({
-		url: url_event_domain + 'others/learning/test_api/api/get/get_attendize_ivp_event.php?oid='+event_organiser_id,	// oid==>organiser id
-		type: 'get',
-		contentType:"application/json; charset=utf-8",		// This is also set in the php script and is not required again here
-		dataType: 'JSON',					// We either set the data type here or in the php script using  header("Content-Type: application/json; charset=UTF-8");
-		success: function(response){
-			
-			if(response)
-			{
-				var len = Object.keys(response.message).length;
-				
-				if(0 < len)
-				{
-					event_id = response.message[0].event_id;
-				
-					$('#buy_now').attr('href', url_event_tool + response.message[0].event_id + '/' + response.message[0].event_title);
-					
-					$('#event_title').html(response.message[0].event_title);
-					$('#event_sub_detail').html('From ' + response.message[0].event_start + ' - ' + response.message[0].event_end);
-					$('#about_event').html(response.message[0].event_desc);
-					$('#event_date').html(response.message[0].event_start + ' - ' + response.message[0].event_end);
-					$('#event_location').html(response.message[0].event_venue + ', ' + response.message[0].event_addr1 + ', ' + response.message[0].event_addr2 + ', ' + response.message[0].event_postcode + ', ' + response.message[0].event_city);
-					
-					getIvpEventTicketDetail(url_event_domain, event_id);
-				}		
-
-			}
+	{
+		// Query event details from server based on oid and/or eid
+		
+		var eid = getUrlParameter('eid');
+		// alert(eid);
+		
+		var url_server = url_event_domain + 'others/learning/test_api/api/get/get_attendize_ivp_event.php';
+		if( ('' == eid) || (undefined == eid))
+		{
+			url_server = url_server + '?oid='+event_organiser_id;
 		}
-	});				
-	
-
+		else
+		{
+			url_server = url_server + '?id='+eid;		// event id found
+		}
+		
+		
+		// Get event details
+		$.ajax({
+			url: url_server,	// oid==>organiser id
+			type: 'get',
+			contentType:"application/json; charset=utf-8",		// This is also set in the php script and is not required again here
+			dataType: 'JSON',					// We either set the data type here or in the php script using  header("Content-Type: application/json; charset=UTF-8");
+			success: function(response){
+				
+				if(response)
+				{
+					var len = Object.keys(response.message).length;
+					
+					if(0 < len)
+					{
+						var tmp;
+						for(tmp = 0; tmp<len; tmp++)
+						{
+							 // alert(response.message[tmp].isEventExpired);
+							
+							if( ('0' == response.message[tmp].isEventDisabled) && ('0' == response.message[tmp].isEventExpired) )
+							{
+								event_id = response.message[tmp].event_id;
+					
+								$('#buy_now').attr('href', url_event_tool + response.message[tmp].event_id + '/' + response.message[tmp].event_title);
+								
+								$('#event_title').html(response.message[tmp].event_title);
+								$('#event_sub_detail').html('From ' + response.message[tmp].event_start + ' - ' + response.message[tmp].event_end);
+								$('#about_event').html(response.message[tmp].event_desc);
+								$('#event_date').html(response.message[tmp].event_start + ' - ' + response.message[tmp].event_end);
+								$('#event_location').html(response.message[tmp].event_venue + ', ' + response.message[tmp].event_addr1 + ', ' + response.message[tmp].event_addr2 + ', ' + response.message[tmp].event_postcode + ', ' + response.message[tmp].event_city);
+																								
+								getIvpEventTicketDetail(url_event_domain, event_id);
+								break;
+							}
+							else
+							{
+								// Do nothing
+							}
+						}						
+					}		
+				}
+			},
+			error: function(xhr, status, error){
+				alert(xhr.responseText);
+			}
+		});				
+	}
+		
 })
 
 

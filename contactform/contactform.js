@@ -95,9 +95,8 @@ $('form.contactForm').submit(function(e) {
 	}
 	else{
 		var contactMessage = $('.contactForm').find("textarea").val();
-		//str = contactMessage.val();
-		
-		alert(contactMessage);
+			
+		//alert(contactMessage);
 		
 		var url_event_domain = "http://localhost/aser/";
 		// ToDo: Change link
