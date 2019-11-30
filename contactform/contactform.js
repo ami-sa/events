@@ -103,7 +103,7 @@ $('form.contactForm').submit(function(e) {
 		var action = url_event_domain + 'others/learning/test_api/api/action/send_email.php';
 	
 		var emailObject = new Object();
-	
+
 		emailObject.receiver_name        	= $('#name').val();
 		emailObject.receiver_email        	= $('#email').val(); // "balacebb@gmail.com";
 		emailObject.email_subject      		= $('#subject').val();

@@ -75,9 +75,9 @@
   ============================-->
   <section id="intro">
     <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">The International<br><span>Visitors Program</span> </h1>
-      <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, Sandton, South Africa</p>
-      <a href="https://www.youtube.com/watch?v=V_1XI1CZU0U" class="venobox play-btn mb-4" data-vbtype="video"
+      <h1 class="mb-4 pb-0" id="event_title">The International<br><span>Visitors</span> Program</h1>
+      <p class="mb-4 pb-0" id="event_sub_detail">8 Charles Crescent Kramerville, Sandton, South Africa</p>
+      <a href="https://www.youtube.com/watch?v=UFRKtqh4vEU&t=5s" id="intro_video" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a>
       <a href="#about" class="about-btn scrollto">About The Event</a>
     </div>
@@ -137,7 +137,7 @@
 
       </div>
 
-      <div class="container-fluid venue-gallery-container">
+      <div class="container-fluid venue-gallery-container"  id="venue_pics">
         <div class="row no-gutters">
 
           <div class="col-lg-3 col-md-4">
@@ -290,7 +290,8 @@
         </div>
       </div>
 
-      <div class="owl-carousel gallery-carousel">
+      <div class="owl-carousel gallery-carousel" id="gallery_pics">
+		<a href="https://www.dropbox.com/sh/94j4ka8hphhjdzj/AADNNaAzkYmPmpfC-__yL6hUa/IMG-20180502-WA0022.jpg?dl=0" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
         <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
         <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
         <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
@@ -298,7 +299,7 @@
         <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
         <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
         <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
-        <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+        <a href="https://images.app.goo.gl/CZAqJuhWTxvhxJ5M9?dl=0" class="venobox" data-gall="gallery-carousel"><img src="https://images.app.goo.gl/CZAqJuhWTxvhxJ5M9?dl=1" alt=""></a>
       </div>
 
     </section>
@@ -657,6 +658,9 @@ We commit to the act of submitting to the will of God. This means serving under 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script src="js/countdowntime.js"></script>
+  
+  	<!-- JS-Library to run Dropbox APIs -->
+	<script src="js/dropbox/Dropbox-sdk.min.js"></script>
 
   	<script>
 		$('.cd100').countdown100({
